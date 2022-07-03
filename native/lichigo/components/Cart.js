@@ -5,7 +5,7 @@ import ListItem from './ListItem'
 import AddItem from "./AddItem";
 import { uuid } from "uuidv4";
 
-const Cart = () => {
+const Cart = ({navigation}) => {
     const [items, setItems] = useState([
         { id: 1, text: 'Leche Entera' },
         { id: 2, text: 'Huevos AAA x 30' },
@@ -39,8 +39,7 @@ const Cart = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        paddingTop: 50
+        flex: 1
     }
 
 });

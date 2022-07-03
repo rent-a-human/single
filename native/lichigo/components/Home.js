@@ -7,12 +7,12 @@ import Dashboard from "./Dashboard";
 
 const Tab = createBottomTabNavigator();
 
-const Home = () => {
+const Home = ({navigation}) => {
     return (
         <Tab.Navigator>
             <Tab.Screen name="Dashboard" options={{ headerShown: false }} component={Dashboard} />
             <Tab.Screen name="Wallet" options={{ headerShown: false }} component={Welcome} />
-            <Tab.Screen name="Mercado" component={Cart} />
+            <Tab.Screen name="Mercado" component={Cart} navigation={navigation} />
         </Tab.Navigator>
     )
 }

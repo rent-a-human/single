@@ -1,19 +1,22 @@
 import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, TouchableOpacity, View, Text } from 'react-native'
+import { SafeAreaView, StyleSheet, ScrollView, View, Text, Image } from 'react-native'
+import Balance from "./Balance";
+import Tasa from "./Tasa";
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Welcome from "./Welcome";
 import { IconButton } from "@react-native-material/core";
 
 
-const Dashboard = () => {
-
+const Dashboard = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
-                <IconButton icon={props => <Icon name="user-o" color="#ff0" {...props} />} />
-                <IconButton icon={props => <Icon name="question" color="#ff0" {...props} />} />
+                <IconButton icon={props => <Image source={{ uri: `https://i.ibb.co/BGmcxzz/person.png` }} style={styles.iconImg} {...props} />} onPress={() => navigation.navigate('User')} />
+                <IconButton icon={props => <Icon name="question-circle-o" style={styles.supportIcon} {...props} />} />
             </View>
-            <Welcome />
+            <ScrollView>
+                <Balance />
+                <Tasa />
+            </ScrollView>
             {/* <DashHeader />
             <Balance />
             <Actions />
@@ -26,7 +29,7 @@ const Dashboard = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 20,
+        paddingTop: 5,
         backgroundColor: '#fff'
     },
     button: {
@@ -41,6 +44,13 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between'
+    },
+    iconImg: {
+        width: 30,
+        height: 30
+    },
+    supportIcon: {
+        fontWeight: '100'
     }
 
 });
