@@ -8,13 +8,16 @@ const ListItem = ({ item, deleteItem }) => {
             <View style={styles.listItemView}>
                 <View style={styles.listItemView}>
                 <Image raised source={{ uri: `https://randomuser.me/api/portraits/women/${item.id}.jpg` }} style={styles.product} />
-                <Text style={styles.listItemText}>{item.text} 1</Text>
+                <Text style={styles.listItemTitle}>{item.title} </Text>
                 </View>
-                {/* <Icon raised
+                <Icon raised
                     name='done'
                     color='#517fb5'
                     onPress={() => deleteItem(item.id)}
-                /> */}
+                />
+            </View>
+            <View>
+            <Text style={styles.listItemText}>{item.body} </Text>
             </View>
         </TouchableOpacity>
     )
@@ -33,9 +36,15 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center'
     },
+    listItemTitle: {
+        fontSize: 18,
+        paddingLeft: 8,
+        maxWidth: 250
+
+    },
     listItemText: {
         fontSize: 16,
-        paddingLeft: 8
+        padding: 8
     },
     product: {
         height: 60,
