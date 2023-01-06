@@ -16,7 +16,7 @@ const Cart = ({ navigation }) => {
         const fetchData = async () => {
             try {
                 const response = await Axios({
-                    url: "https://jsonplaceholder.typicode.com/posts",
+                    url: "https://lichigo.vercel.app/api/public/products",
                 });
                 setItems(response.data);
             } catch (error) {
@@ -27,9 +27,9 @@ const Cart = ({ navigation }) => {
         fetchData();
     }, [setItems]);
 
-    const deleteItem = (id) => {
+    const deleteItem = (_id) => {
         setItems(prevItems => {
-            return prevItems.filter(item => item.id !== id)
+            return prevItems.filter(item => item._id !== _id)
         });
     }
 

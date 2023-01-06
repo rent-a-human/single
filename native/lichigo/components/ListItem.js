@@ -7,17 +7,17 @@ const ListItem = ({ item, deleteItem }) => {
         <TouchableOpacity style={styles.listItem}>
             <View style={styles.listItemView}>
                 <View style={styles.listItemView}>
-                <Image raised source={{ uri: `https://randomuser.me/api/portraits/women/${item.id}.jpg` }} style={styles.product} />
-                <Text style={styles.listItemTitle}>{item.title} </Text>
+                <Image raised source={{ uri: `${item.image}` }} style={styles.product} />
+                <Text style={styles.listItemTitle}>{item.productName} </Text>
                 </View>
                 <Icon raised
                     name='done'
                     color='#517fb5'
-                    onPress={() => deleteItem(item.id)}
+                    onPress={() => deleteItem(item._id)}
                 />
             </View>
             <View>
-            <Text style={styles.listItemText}>{item.body} </Text>
+            <Text style={styles.listItemText}>{item.description} </Text>
             </View>
         </TouchableOpacity>
     )
