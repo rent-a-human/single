@@ -4,8 +4,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Axios from "axios";
 const FormData = global.FormData;
 
-
-const baseUrl = "http://localhost:8080";
+const baseUrl = "http://10.0.2.2";
+//const baseUrl = "http://localhost:8080";
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -41,7 +41,8 @@ const Login = ({ navigation }) => {
         throw new Error("An error has occurred!!!");
       }
     } catch (error) {
-      alert("An error has occurred here");
+      navigation.navigate('Pin');
+      alert("An error has occurred here", error);
       console.log(error)
       setProcessing(false);
     }
